@@ -1,0 +1,48 @@
+.section-title {
+  text-align: inherit;
+}
+
+.eyebrow {
+  margin-bottom: 18px;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(248, 233, 165, 0.92);
+}
+
+.section-title h2 {
+  margin-bottom: 20px;
+  font-size: clamp(46px, 14vw, 76px);
+  line-height: 0.9;
+  color: #fff8df;
+  text-shadow: 0 12px 42px rgba(0, 0, 0, 0.75);
+}
+
+.section-text {
+  max-width: 310px;
+  margin: 0 auto;
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 1.9;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.76);
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.9);
+}
+
+.position-left-center .section-text {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: clamp(44px, 15vw, 66px);
+  }
+
+  .section-text {
+    font-size: 13.5px;
+  }
+
+  .position-left-center .section-text {
+    margin-left: auto;
+  }
+}

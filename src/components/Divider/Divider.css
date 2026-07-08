@@ -1,0 +1,22 @@
+.luxury-divider {
+  width: 92px;
+  height: 1px;
+  margin: 24px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(248, 233, 165, 0.88),
+    transparent
+  );
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+}
+
+.position-left-center .luxury-divider {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .position-left-center .luxury-divider {
+    margin-left: auto;
+  }
+}

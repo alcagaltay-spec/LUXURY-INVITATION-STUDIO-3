@@ -1,0 +1,225 @@
+.invitation-section {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 24px 18px;
+  isolation: isolate;
+}
+
+.scene-bg-motion {
+  position: absolute;
+  inset: -4%;
+  z-index: 0;
+  background: inherit;
+  background-size: cover;
+  background-position: center top;
+  transform: scale(1.03);
+  opacity: 0.9;
+  animation: sceneBreath 18s ease-in-out infinite;
+}
+
+.scene-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.scene-light {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  z-index: 2;
+  width: 160px;
+  height: 64px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18), transparent 70%);
+  filter: blur(22px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.invitation-section-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 350px;
+  animation: sceneReveal 1.25s ease both;
+}
+
+.scene-content-inner {
+  text-align: center;
+}
+
+/* POSITIONS */
+
+.position-center,
+.position-center-lower {
+  align-items: center;
+  justify-content: center;
+}
+
+.position-center-lower .invitation-section-content {
+  margin-top: 120px;
+}
+
+.position-left-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.position-left-center .scene-content-inner {
+  text-align: center;
+}
+
+.position-bottom {
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 76px;
+}
+
+/* HERO SPECIAL MOBILE-FRIENDLY POSITION */
+
+.scene-hero {
+  background-position: center top;
+}
+
+.scene-hero .scene-bg-motion {
+  background-position: center top;
+}
+
+.scene-hero .invitation-section-content {
+  transform: translateY(20px);
+}
+
+/* OVERLAYS */
+
+.overlay-deep-vignette .scene-overlay {
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.04), rgba(0,0,0,0.64)),
+    linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.8));
+}
+
+.overlay-milkyway .scene-overlay {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.72)),
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.06), transparent 32%);
+}
+
+.overlay-soft-stars .scene-overlay {
+  background:
+    radial-gradient(circle at 82% 40%, rgba(212,175,55,0.1), transparent 30%),
+    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.76));
+}
+
+.overlay-minimal .scene-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.36), rgba(0,0,0,0.82));
+}
+
+.overlay-horizon .scene-overlay {
+  background:
+    radial-gradient(circle at 50% 78%, rgba(212,175,55,0.14), transparent 34%),
+    linear-gradient(to bottom, rgba(0,0,0,0.16), rgba(0,0,0,0.82));
+}
+
+.overlay-moon .scene-overlay {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,0.12), transparent 28%),
+    linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.84));
+}
+
+.overlay-quiet .scene-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.44), rgba(0,0,0,0.88));
+}
+
+.overlay-reflection .scene-overlay {
+  background:
+    radial-gradient(circle at 50% 76%, rgba(212,175,55,0.16), transparent 32%),
+    linear-gradient(to bottom, rgba(0,0,0,0.14), rgba(0,0,0,0.76));
+}
+
+/* LAYOUT DIFFERENCES */
+
+.layout-gallery .glass-card,
+.layout-form .glass-card,
+.layout-countdown .glass-card,
+.layout-details .glass-card {
+  background: rgba(5, 8, 14, 0.28);
+}
+
+.layout-story .invitation-section-content {
+  max-width: 345px;
+}
+
+.layout-final .section-title h2 {
+  font-size: clamp(44px, 13vw, 72px);
+}
+
+/* ANIMATIONS */
+
+@keyframes sceneBreath {
+  0%, 100% {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: scale(1.06) translate3d(-5px, 7px, 0);
+  }
+}
+
+@keyframes sceneReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 430px) {
+  .invitation-section-content {
+    max-width: 330px;
+  }
+
+  .position-center-lower .invitation-section-content {
+    margin-top: 95px;
+  }
+
+  .position-bottom {
+    padding-bottom: 64px;
+  }
+
+  .scene-hero .invitation-section-content {
+    transform: translateY(8px);
+  }
+}
+
+/* DESKTOP PREVIEW */
+@media (min-width: 769px) {
+  .invitation-section {
+    min-height: 100vh;
+  }
+
+  .invitation-section-content {
+    max-width: 350px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-bg-motion,
+  .invitation-section-content,
+  .scroll-indicator {
+    animation: none !important;
+  }
+}

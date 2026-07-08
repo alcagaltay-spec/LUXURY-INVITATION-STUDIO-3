@@ -1,0 +1,30 @@
+.scene-engine {
+  width: 100%;
+  min-height: 100vh;
+  background: #04060b;
+}
+
+.scene-frame {
+  position: relative;
+  min-height: 100svh;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.scene-engine {
+  animation: sceneEngineEnter 1.2s ease both;
+}
+
+@keyframes sceneEngineEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(1.02);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
