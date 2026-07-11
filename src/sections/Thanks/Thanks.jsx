@@ -9,7 +9,7 @@ export default function Thanks() {
       id="thanks"
       className="thanks-section"
       style={{
-        backgroundImage: `url(${bg("thanks.jpg")})`,
+        backgroundImage: `url(${bg("thanks.webp")})`,
       }}
     >
       <div className="thanks-overlay" />

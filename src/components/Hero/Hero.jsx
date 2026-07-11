@@ -15,7 +15,7 @@ export default function Hero({ onOpenInvitation }) {
     <section
       id="hero"
       className="premium-hero"
-      style={{ backgroundImage: `url(${bg("hero.jpg")})` }}
+      style={{ backgroundImage: `url(${bg("hero.webp")})` }}
     >
       <div className="hero-bg-motion" />
       <div className="hero-overlay" />

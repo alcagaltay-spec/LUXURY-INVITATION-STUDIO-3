@@ -14,7 +14,7 @@ export default function Event() {
     <section
       id="event"
       className="event-section"
-      style={{ backgroundImage: `url(${bg("event.jpg")})` }}
+      style={{ backgroundImage: `url(${bg("event.webp")})` }}
     >
       <div className="event-overlay" />
 

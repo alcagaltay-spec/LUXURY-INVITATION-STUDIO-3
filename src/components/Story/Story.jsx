@@ -14,7 +14,7 @@ export default function Story() {
     <section
       id="story"
       className="story-scene"
-      style={{ backgroundImage: `url(${bg("story.jpg")})` }}
+      style={{ backgroundImage: `url(${bg("story.webp")})` }}
     >
       <div className="story-bg-motion" />
       <div className="story-overlay" />

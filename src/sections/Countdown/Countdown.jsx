@@ -71,7 +71,7 @@ export default function Countdown() {
       id="countdown"
       className="countdown-section"
       style={{
-        backgroundImage: `url(${bg("countdown.jpg")})`,
+        backgroundImage: `url(${bg("countdown.webp")})`,
       }}
     >
       <div className="countdown-overlay" />
