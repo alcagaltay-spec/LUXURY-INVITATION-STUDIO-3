@@ -19,14 +19,15 @@ export default function InvitationSection({ section }) {
 
       {section.buttonText && (
         <LuxuryButton onClick={section.onButtonClick}>
-  {section.buttonText}
-</LuxuryButton>
+          {section.buttonText}
+        </LuxuryButton>
       )}
     </div>
   );
 
   return (
     <section
+      id={section.id}
       className={`
         invitation-section
         scene-${section.id}
@@ -36,7 +37,11 @@ export default function InvitationSection({ section }) {
       `}
       style={{ backgroundImage: `url(${section.background})` }}
     >
-      <div className="scene-bg-motion" />
+      <div
+        className="scene-bg-motion"
+        style={{ backgroundImage: `url(${section.background})` }}
+      />
+
       <div className="scene-overlay" />
       <div className="scene-light" />
 

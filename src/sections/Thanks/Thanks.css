@@ -1,0 +1,339 @@
+.thanks-section {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    max(24px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(22px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.thanks-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 62%,
+      rgba(212, 175, 55, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.12),
+      rgba(0, 0, 0, 0.54),
+      rgba(0, 0, 0, 0.78)
+    );
+}
+
+.thanks-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 460px;
+
+  margin: 0 auto;
+  text-align: center;
+
+  transform: translateY(clamp(0px, 3.5svh, 32px));
+}
+
+.thanks-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin-bottom: 20px;
+}
+
+.thanks-emblem-line {
+  width: 66px;
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(232, 207, 138, 0.72)
+  );
+}
+
+.thanks-emblem-line:last-child {
+  background: linear-gradient(
+    to left,
+    transparent,
+    rgba(232, 207, 138, 0.72)
+  );
+}
+
+.thanks-emblem-branch {
+  display: block;
+
+  color: #d9bf79;
+
+  font-size: 23px;
+  line-height: 1;
+
+  transform: rotate(180deg);
+}
+
+.thanks-heading {
+  margin: 0;
+  padding-left: 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(25px, 6vw, 36px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: clamp(4px, 1.2vw, 7px);
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: #e4c982;
+
+  text-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.85),
+    0 0 18px rgba(212, 175, 55, 0.14);
+}
+
+.thanks-heart-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: clamp(32px, 6svh, 54px) auto clamp(20px, 3svh, 28px);
+}
+
+.thanks-heart-divider span {
+  width: min(25vw, 145px);
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(232, 207, 138, 0.72)
+  );
+}
+
+.thanks-heart-divider span:last-child {
+  background: linear-gradient(
+    to left,
+    transparent,
+    rgba(232, 207, 138, 0.72)
+  );
+}
+
+.thanks-heart-divider i {
+  margin: 0 18px;
+
+  color: #d9bf79;
+
+  font-size: 14px;
+  font-style: normal;
+
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+}
+
+.thanks-text {
+  margin: 0 auto;
+
+  max-width: 450px;
+
+  color: rgba(242, 221, 164, 0.88);
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(15px, 3.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.72;
+}
+
+.thanks-reflection-star {
+  margin-top: clamp(20px, 3.5svh, 30px);
+
+  color: #f2dda4;
+
+  font-size: 21px;
+  line-height: 1;
+
+  text-shadow:
+    0 0 8px rgba(242, 221, 164, 0.9),
+    0 0 22px rgba(212, 175, 55, 0.58);
+}
+
+.thanks-signature-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: clamp(22px, 3.8svh, 32px);
+}
+
+.thanks-signature-row > span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(232, 207, 138, 0.72));
+}
+
+.thanks-signature-row > span:last-child {
+  background: linear-gradient(to left, transparent, rgba(232, 207, 138, 0.72));
+}
+
+.thanks-signature {
+  flex: 0 0 auto;
+  margin: 0;
+
+  color: #d9bf79;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 400;
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 430px) {
+  .thanks-section {
+    background-position: 50% top;
+  }
+
+  .thanks-content {
+    max-width: 360px;
+  }
+
+  .thanks-heading {
+    max-width: 100%;
+    font-size: clamp(22px, 7vw, 28px);
+    letter-spacing: clamp(2.5px, 1.1vw, 4px);
+  }
+
+  .thanks-text {
+    max-width: 340px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 360px) {
+  .thanks-content {
+    max-width: 320px;
+  }
+
+  .thanks-emblem-line {
+    width: 48px;
+  }
+
+  .thanks-emblem-branch {
+    font-size: 19px;
+  }
+
+  .thanks-heading {
+    padding-left: 3px;
+    font-size: 21px;
+    letter-spacing: 2.5px;
+  }
+
+  .thanks-heart-divider i {
+    margin-inline: 12px;
+  }
+
+  .thanks-text {
+    max-width: 310px;
+    font-size: 14px;
+  }
+
+  .thanks-signature-row {
+    gap: 8px;
+  }
+
+  .thanks-signature {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-height: 760px) {
+  .thanks-section {
+    padding-top: 24px;
+    padding-bottom: 22px;
+  }
+
+  .thanks-emblem {
+    margin-bottom: 14px;
+  }
+
+  .thanks-heart-divider {
+    margin-top: 42px;
+    margin-bottom: 22px;
+  }
+
+  .thanks-reflection-star {
+    margin-top: 20px;
+  }
+
+  .thanks-signature {
+    font-size: 13px;
+  }
+
+  .thanks-signature-row {
+    margin-top: 18px;
+  }
+}
+
+@media (max-height: 640px) {
+  .thanks-content {
+    transform: none;
+  }
+
+  .thanks-emblem {
+    margin-bottom: 10px;
+  }
+
+  .thanks-emblem-branch {
+    font-size: 18px;
+  }
+
+  .thanks-heading {
+    font-size: 21px;
+  }
+
+  .thanks-heart-divider {
+    margin-top: 22px;
+    margin-bottom: 14px;
+  }
+
+  .thanks-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .thanks-reflection-star {
+    margin-top: 14px;
+    font-size: 17px;
+  }
+
+  .thanks-signature-row {
+    margin-top: 14px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .thanks-section {
+    min-height: 620px;
+    background-position: center top;
+  }
+}

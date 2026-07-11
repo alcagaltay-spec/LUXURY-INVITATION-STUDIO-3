@@ -1,0 +1,214 @@
+.event-section {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px 22px;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.event-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(212,175,55,.08), transparent 30%),
+    linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.84));
+}
+
+.event-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 310px;
+  padding: 40px 24px 34px;
+  border-radius: 32px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(212,175,55,.06), transparent 58%),
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+  border: 1px solid rgba(232,207,138,.26);
+  backdrop-filter: blur(24px);
+  box-shadow:
+    0 28px 78px rgba(0,0,0,.58),
+    inset 0 1px 0 rgba(255,255,255,.05);
+  text-align: center;
+}
+
+.event-eyebrow {
+  margin: 0 0 28px;
+  color: #d9bf79;
+  font-size: 10px;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+}
+
+.event-day {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 86px;
+  line-height: .8;
+  color: #fff8df;
+  font-weight: 300;
+  text-shadow: 0 0 28px rgba(212,175,55,.16);
+}
+
+.event-month {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  color: #d9bf79;
+  font-size: 10px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
+.event-month::before,
+.event-month::after {
+  content: "";
+  width: 42px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(232,207,138,.8));
+}
+
+.event-month::after {
+  background: linear-gradient(to left, transparent, rgba(232,207,138,.8));
+}
+
+.event-year {
+  margin-top: 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 40px;
+  color: #fff8df;
+  font-weight: 300;
+}
+
+.event-divider {
+  width: 120px;
+  height: 1px;
+  margin: 28px auto;
+  background: linear-gradient(to right, transparent, rgba(232,207,138,.85), transparent);
+}
+
+.event-info {
+  margin-bottom: 22px;
+}
+
+.event-info span {
+  display: block;
+  margin-bottom: 8px;
+  color: #d9bf79;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.event-info strong {
+  display: block;
+  color: rgba(255,255,255,.9);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.event-map-button {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 48px;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.14);
+  border: 1px solid rgba(232,207,138,.48);
+  color: #e8cf8a;
+  font-size: 10px;
+  letter-spacing: 4.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .35s ease;
+}
+
+.event-map-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(110deg, transparent, rgba(255,255,255,.28), transparent);
+  transform: skewX(-22deg);
+  transition: left .8s ease;
+}
+
+.event-map-button:hover {
+  border-color: #f6df9c;
+  background: rgba(232,207,138,.055);
+  box-shadow: 0 0 28px rgba(212,175,55,.15);
+}
+
+.event-map-button:hover::before {
+  left: 160%;
+}
+
+.event-next {
+  margin-top: 34px;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.event-line {
+  width: 1px;
+  height: 38px;
+  background: linear-gradient(to bottom, transparent, rgba(232,207,138,.9));
+  transition: .35s ease;
+}
+
+.event-next p {
+  margin: 0;
+  color: #d9bf79;
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  transition: .35s ease;
+}
+
+.event-next:hover .event-line {
+  height: 46px;
+}
+
+.event-next:hover p {
+  letter-spacing: 7px;
+  color: #f4df9c;
+}
+
+@media(max-width:430px) {
+  .event-card {
+    max-width: 306px;
+    padding: 38px 22px 32px;
+  }
+
+  .event-day {
+    font-size: 78px;
+  }
+
+  .event-year {
+    font-size: 38px;
+  }
+
+  .event-month {
+    letter-spacing: 7px;
+    gap: 10px;
+  }
+
+  .event-month::before,
+  .event-month::after {
+    width: 34px;
+  }
+}

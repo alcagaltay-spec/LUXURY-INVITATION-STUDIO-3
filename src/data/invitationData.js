@@ -1,3 +1,5 @@
+const bg = (file) => `${import.meta.env.BASE_URL}images/backgrounds/${file}`;
+
 export const invitationSections = [
   {
     id: "intro",
@@ -6,12 +8,13 @@ export const invitationSections = [
     card: false,
     overlay: "deep-vignette",
     position: "center-lower",
-    background: "/images/backgrounds/intro.jpg",
+    background: bg("intro.jpg"),
     eyebrow: "Starlight Symphony",
     title: "Ahmet & Elif",
     text: "Birlikte yazılan en güzel hikâyeye davetlisiniz.",
     buttonText: "Yolculuğu Başlat",
   },
+
   {
     id: "hero",
     scene: "Invitation Reveal",
@@ -19,12 +22,13 @@ export const invitationSections = [
     card: false,
     overlay: "milkyway",
     position: "center",
-    background: "/images/backgrounds/hero.jpg",
+    background: bg("hero.jpg"),
     eyebrow: "Düğün Davetiyesi",
     title: "Ahmet & Elif",
     text: "12 Haziran 2027",
     buttonText: "Daveti Aç",
   },
+
   {
     id: "story",
     scene: "Story Scene",
@@ -32,11 +36,12 @@ export const invitationSections = [
     card: false,
     overlay: "soft-stars",
     position: "left-center",
-    background: "/images/backgrounds/story.jpg",
+    background: bg("story.jpg"),
     eyebrow: "Hikayemiz",
     title: "Bir Bakışla Başladı",
-    text: "Zamanla büyüyen, yıldızlar kadar parlak bir sevdaya dönüştü.",
+    text: "Zamanla büyüyen, yıldızlar kadar parlak bir sevdaye dönüştü.",
   },
+
   {
     id: "gallery",
     scene: "Memory Scene",
@@ -44,11 +49,12 @@ export const invitationSections = [
     card: false,
     overlay: "minimal",
     position: "center",
-    background: "/images/backgrounds/gallery.jpg",
+    background: bg("gallery.jpg"),
     eyebrow: "Anılarımız",
     title: "Galeri",
     text: "Birlikte biriktirdiğimiz en özel anlardan küçük bir seçki.",
   },
+
   {
     id: "event",
     scene: "Wedding Details Scene",
@@ -56,12 +62,13 @@ export const invitationSections = [
     card: true,
     overlay: "horizon",
     position: "bottom",
-    background: "/images/backgrounds/event.jpg",
+    background: bg("event.jpg"),
     eyebrow: "Etkinlik",
     title: "12 Haziran 2027",
     text: "Saat 19:30\nRoyal Garden Davet Salonu",
     buttonText: "Yol Tarifi Al",
   },
+
   {
     id: "countdown",
     scene: "Countdown Scene",
@@ -69,11 +76,12 @@ export const invitationSections = [
     card: true,
     overlay: "moon",
     position: "center-lower",
-    background: "/images/backgrounds/countdown.jpg",
+    background: bg("countdown.jpg"),
     eyebrow: "Geri Sayım",
     title: "Büyük Güne Az Kaldı",
-    text: "00 Gün  •  00 Saat  •  00 Dakika",
+    text: "00 Gün • 00 Saat • 00 Dakika",
   },
+
   {
     id: "rsvp",
     scene: "RSVP Scene",
@@ -81,12 +89,13 @@ export const invitationSections = [
     card: true,
     overlay: "quiet",
     position: "center",
-    background: "/images/backgrounds/rsvp.jpg",
+    background: bg("rsvp.jpg"),
     eyebrow: "Katılım",
     title: "Bizimle misiniz?",
     text: "Bu özel gecede yanımızda olmanız bizi çok mutlu eder.",
     buttonText: "Katılım Bildir",
   },
+
   {
     id: "thanks",
     scene: "Final Scene",
@@ -94,7 +103,7 @@ export const invitationSections = [
     card: false,
     overlay: "reflection",
     position: "bottom",
-    background: "/images/backgrounds/thanks.jpg",
+    background: bg("thanks.jpg"),
     eyebrow: "Teşekkürler",
     title: "Sonsuz Sevgiyle",
     text: "Bu hikâyenin en özel anına eşlik ettiğiniz için teşekkür ederiz.\nAhmet & Elif",

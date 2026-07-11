@@ -8,6 +8,7 @@ import { invitationSections } from "./data/invitationData";
 export default function App() {
   const [started, setStarted] = useState(false);
   const [openingDone, setOpeningDone] = useState(false);
+  const [invitationOpened, setInvitationOpened] = useState(false);
 
   const openingScene = {
     ...invitationSections.find((scene) => scene.id === "intro"),
@@ -35,9 +36,14 @@ export default function App() {
 />
       )}
 
-      {openingDone && <SceneEngine scenes={mainScenes} />}
+      {openingDone && (
+        <SceneEngine
+          scenes={mainScenes}
+          onOpenInvitation={() => setInvitationOpened(true)}
+        />
+      )}
 
-      <AudioButton />
+      {invitationOpened && <AudioButton />}
     </main>
   );
 }

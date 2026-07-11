@@ -1,0 +1,353 @@
+.countdown-section {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 42px 18px;
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.countdown-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(212, 175, 55, 0.09),
+      transparent 36%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.82)
+    );
+}
+
+.countdown-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 350px;
+
+  margin: 0 auto;
+  text-align: center;
+}
+
+.countdown-eyebrow {
+  margin: 0;
+
+  color: #d9bf79;
+
+  font-size: 10px;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+}
+
+.countdown-ornament,
+.countdown-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 20px auto 26px;
+}
+
+.countdown-ornament span,
+.countdown-divider span {
+  width: 50px;
+  height: 1px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(232, 207, 138, 0.8)
+  );
+}
+
+.countdown-ornament span:last-child,
+.countdown-divider span:last-child {
+  background: linear-gradient(
+    to left,
+    transparent,
+    rgba(232, 207, 138, 0.8)
+  );
+}
+
+.countdown-ornament i,
+.countdown-divider i {
+  width: 5px;
+  height: 5px;
+
+  margin: 0 8px;
+
+  background: #f2dda0;
+  transform: rotate(45deg);
+
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.6);
+}
+
+.countdown-content h2 {
+  display: grid;
+  gap: 2px;
+
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(48px, 14vw, 67px);
+  font-weight: 300;
+  line-height: 0.92;
+
+  color: #fff8df;
+
+  text-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.92),
+    0 0 26px rgba(212, 175, 55, 0.1);
+}
+
+.countdown-content h2 span {
+  display: block;
+}
+
+.countdown-divider {
+  margin: 28px auto 30px;
+}
+
+.countdown-divider span {
+  width: 70px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  margin-top: 6px;
+}
+
+.countdown-unit {
+  position: relative;
+
+  padding: 0 7px;
+}
+
+.countdown-unit:not(:last-child)::after {
+  content: "";
+  position: absolute;
+
+  top: 4px;
+  right: 0;
+
+  width: 1px;
+  height: 70px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(232, 207, 138, 0.64),
+    transparent
+  );
+}
+
+.countdown-unit strong {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 9vw, 43px);
+  font-weight: 300;
+  line-height: 1;
+
+  color: #f4dda0;
+
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.16);
+}
+
+.countdown-unit span {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #d9bf79;
+
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.calendar-button {
+  position: relative;
+  overflow: hidden;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 156px;
+  height: 40px;
+
+  margin-top: 42px;
+  padding: 0 20px;
+
+  border: 1px solid rgba(232, 207, 138, 0.48);
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.01)
+    ),
+    rgba(0, 0, 0, 0.18);
+
+  color: #e8cf8a;
+  text-decoration: none;
+
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+
+  box-shadow:
+    0 12px 34px rgba(0, 0, 0, 0.35),
+    inset 0 0 14px rgba(255, 223, 140, 0.04);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.calendar-button::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: -130%;
+
+  width: 55%;
+  height: 100%;
+
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+
+  transform: skewX(-24deg);
+  transition: left 0.85s ease;
+}
+
+.calendar-button:hover {
+  transform: translateY(-2px);
+  border-color: #f2da96;
+
+  box-shadow:
+    0 16px 42px rgba(0, 0, 0, 0.42),
+    0 0 22px rgba(212, 175, 55, 0.14);
+}
+
+.calendar-button:hover::before {
+  left: 170%;
+}
+
+.calendar-icon {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.countdown-next {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+
+  margin: 34px auto 0;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: #d9bf79;
+
+  cursor: pointer;
+}
+
+.countdown-next-line {
+  width: 1px;
+  height: 38px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(232, 207, 138, 0.9)
+  );
+
+  transition: height 0.35s ease;
+}
+
+.countdown-next > span:last-child {
+  font-size: 9px;
+  letter-spacing: 4.8px;
+  text-transform: uppercase;
+
+  transition:
+    color 0.35s ease,
+    letter-spacing 0.35s ease;
+}
+
+.countdown-next:hover .countdown-next-line {
+  height: 46px;
+}
+
+.countdown-next:hover > span:last-child {
+  color: #f4df9c;
+  letter-spacing: 6px;
+}
+
+@media (max-width: 430px) {
+  .countdown-section {
+    padding: 36px 14px;
+  }
+
+  .countdown-content {
+    max-width: 340px;
+  }
+
+  .countdown-content h2 {
+    font-size: clamp(46px, 14vw, 61px);
+  }
+
+  .countdown-unit {
+    padding: 0 5px;
+  }
+
+  .countdown-unit strong {
+    font-size: clamp(30px, 9vw, 39px);
+  }
+
+  .countdown-unit span {
+    font-size: 7px;
+    letter-spacing: 1.6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calendar-button,
+  .calendar-button::before,
+  .countdown-next-line,
+  .countdown-next > span:last-child {
+    transition: none;
+  }
+}
