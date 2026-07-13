@@ -36,12 +36,10 @@ export default function App() {
 />
       )}
 
-      {openingDone && (
-        <SceneEngine
-          scenes={mainScenes}
-          onOpenInvitation={() => setInvitationOpened(true)}
-        />
-      )}
+      <SceneEngine
+        scenes={mainScenes}
+        onOpenInvitation={() => setInvitationOpened(true)}
+      />
 
       {invitationOpened && <AudioButton />}
     </main>

@@ -1,36 +1,12 @@
 export const openingTimeline = {
-  duration: 7000,
+  duration: 12000,
 
   chapters: [
-    {
-      id: "groom-entrance",
-      start: 0,
-      end: 2000,
-      label: "Groom Entrance",
-    },
-    {
-      id: "bride-entrance",
-      start: 2000,
-      end: 4000,
-      label: "Bride Entrance",
-    },
-    {
-      id: "hands-meet",
-      start: 4000,
-      end: 5500,
-      label: "Hands Meet",
-    },
-    {
-      id: "reveal",
-      start: 5500,
-      end: 6500,
-      label: "Names Reveal",
-    },
-    {
-      id: "transition",
-      start: 6500,
-      end: 7000,
-      label: "Hero Transition",
-    },
+    { id: "birth", start: 0, end: 750, label: "Birth of Light" },
+    { id: "letter-a", start: 700, end: 3770, label: "A Calligraphy" },
+    { id: "ampersand", start: 3720, end: 5000, label: "Ampersand" },
+    { id: "letter-e", start: 4950, end: 7500, label: "E Calligraphy" },
+    { id: "story-line", start: 7600, end: 10800, label: "Bir Hikâye Başlıyor" },
+    { id: "transition", start: 10500, end: 12000, label: "Soft Invitation Transition" },
   ],
 };

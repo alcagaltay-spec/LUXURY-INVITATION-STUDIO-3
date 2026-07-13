@@ -1,172 +1,354 @@
-.couple-opening {
+@font-face {
+  font-family: "Great Vibes Local";
+  src: url("../../assets/fonts/GreatVibes-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.journey-opening {
   position: fixed;
   inset: 0;
   z-index: 9999;
   overflow: hidden;
   isolation: isolate;
-  background: #05070d;
-  animation: openingExit 7s ease-in-out forwards;
+  background: #000;
+  animation: journeyExit 12s ease-in-out forwards;
 }
 
-.opening-ambient,
-.opening-stars,
-.opening-vignette,
-.invitation-transition {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.opening-ambient {
-  background:
-    radial-gradient(circle at 50% 61%, rgba(190, 143, 55, 0.2), transparent 22%),
-    radial-gradient(circle at 50% 42%, rgba(43, 55, 78, 0.35), transparent 48%),
-    linear-gradient(180deg, #090c14 0%, #11121a 58%, #05060a 100%);
-  animation: ambientZoom 7s cubic-bezier(.22, .7, .25, 1) forwards;
-}
-
-.opening-stars {
-  opacity: .45;
-  background-image:
-    radial-gradient(circle, rgba(255, 232, 169, .75) 0 1px, transparent 1.6px),
-    radial-gradient(circle, rgba(255, 255, 255, .5) 0 1px, transparent 1.4px);
-  background-position: 18px 22px, 75px 64px;
-  background-size: 118px 118px, 164px 164px;
-  mask-image: linear-gradient(to bottom, #000, transparent 72%);
-}
-
-.couple-stage {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  animation: stagePush 7s cubic-bezier(.2, .7, .2, 1) forwards;
-}
-
-.opening-person {
-  position: absolute;
-  bottom: -2vh;
-  height: min(94vh, 940px);
-  width: auto;
-  max-width: none;
-  pointer-events: none;
-  user-select: none;
-  filter: blur(12px) drop-shadow(0 24px 30px rgba(0, 0, 0, .65));
-  will-change: transform, filter, opacity;
-}
-
-.opening-groom {
-  left: 50%;
-  opacity: 0;
-  transform: translateX(-118%);
-  animation: groomEntrance 7s cubic-bezier(.22, .75, .2, 1) forwards;
-}
-
-.opening-bride {
-  right: 50%;
-  opacity: 0;
-  transform: translateX(130%);
-  animation: brideEntrance 7s cubic-bezier(.22, .75, .2, 1) forwards;
-}
-
-.hand-glow {
-  position: absolute;
-  left: 50%;
-  top: 38%;
-  width: 12px;
-  height: 12px;
-  z-index: 8;
-  border-radius: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(.1);
-  background: #fff7cd;
-  box-shadow:
-    0 0 12px 5px rgba(255, 235, 164, .95),
-    0 0 42px 18px rgba(218, 164, 57, .65),
-    0 0 100px 35px rgba(185, 119, 23, .28);
-  animation: handSpark 7s ease-out forwards;
-}
-
-.hand-glow::before,
-.hand-glow::after,
-.hand-glow span::before,
-.hand-glow span::after {
+.journey-opening::before,
+.journey-opening::after {
   content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.journey-opening::before {
+  background:
+    radial-gradient(circle at 11% 17%, rgba(255,255,255,.98) 0 1.2px, rgba(188,195,205,.42) 1.5px, transparent 4px),
+    radial-gradient(circle at 72% 9%, rgba(235,239,245,.94) 0 1px, rgba(180,187,198,.32) 1.4px, transparent 3.5px),
+    radial-gradient(circle at 88% 31%, rgba(255,255,255,.96) 0 1.35px, rgba(195,201,210,.34) 1.7px, transparent 4.5px),
+    radial-gradient(circle at 27% 38%, rgba(226,231,238,.9) 0 .9px, transparent 3px),
+    radial-gradient(circle at 61% 54%, rgba(255,255,255,.97) 0 1.1px, rgba(183,190,201,.3) 1.5px, transparent 4px),
+    radial-gradient(circle at 16% 69%, rgba(239,242,247,.92) 0 1px, transparent 3.2px),
+    radial-gradient(circle at 82% 78%, rgba(255,255,255,.96) 0 1.25px, rgba(188,195,205,.28) 1.7px, transparent 4px),
+    radial-gradient(circle at 43% 89%, rgba(223,228,235,.88) 0 .9px, transparent 3px);
+  animation: silverSkyDrift 12s linear forwards, silverTwinkle 3.8s ease-in-out infinite alternate;
+}
+
+.journey-opening::after {
+  background:
+    radial-gradient(circle at 34% 13%, rgba(255,255,255,1) 0 1.3px, rgba(215,221,229,.42) 2px, transparent 7px),
+    radial-gradient(circle at 93% 58%, rgba(246,248,251,.98) 0 1.2px, rgba(185,192,203,.36) 2px, transparent 6px),
+    radial-gradient(circle at 7% 84%, rgba(255,255,255,.96) 0 1.15px, rgba(199,205,214,.3) 2px, transparent 6px);
+  animation: silverTwinkle 2.7s ease-in-out .6s infinite alternate;
+}
+
+.monogram-ambient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(206, 154, 57, .055), transparent 34%);
+  animation: ambientBreath 12s ease-in-out forwards;
+}
+
+.gold-monogram {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 90px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #ffe9a1, transparent);
+  z-index: 3;
+  width: min(88vw, 54vh);
+  height: auto !important;
+  aspect-ratio: 3 / 2;
+  overflow: visible;
+  transform: translate(-50%, -50%);
 }
 
-.hand-glow::before { transform: translate(-50%, -50%); }
-.hand-glow::after { transform: translate(-50%, -50%) rotate(90deg); }
-.hand-glow span::before { transform: translate(-50%, -50%) rotate(45deg); }
-.hand-glow span::after { transform: translate(-50%, -50%) rotate(-45deg); }
-
-.opening-vignette {
-  z-index: 20;
-  background: radial-gradient(ellipse at 50% 48%, transparent 35%, rgba(0, 0, 0, .76) 100%);
+.monogram-letter {
+  fill: none;
+  stroke: url(#champagne-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.invitation-transition {
-  z-index: 30;
+.monogram-letter {
+  stroke-width: 2.15;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.letter-a { animation: writeLetter 2.4s cubic-bezier(.42, 0, .24, 1) .7s forwards; }
+.letter-a-cross { animation: writeLetter .75s cubic-bezier(.42, 0, .24, 1) 3.02s forwards; }
+.letter-ampersand { animation: writeLetter .95s cubic-bezier(.42, 0, .24, 1) 3.72s forwards; }
+.letter-ampersand-cross { animation: writeLetter .38s ease 4.62s forwards; }
+.letter-e { animation: writeLetter 2.55s cubic-bezier(.42, 0, .24, 1) 4.95s forwards; }
+
+.drawing-light {
+  fill: #fff5d8;
   opacity: 0;
-  background: radial-gradient(circle at center, #fff7dc 0%, #d6b15b 18%, rgba(16, 15, 18, .96) 68%);
-  transform: scale(.08);
-  animation: invitationFlash 7s cubic-bezier(.5, 0, .8, 1) forwards;
+  filter: drop-shadow(0 0 7px #e2b85f) drop-shadow(0 0 15px rgba(226, 184, 95, .8));
 }
 
-@keyframes groomEntrance {
-  0% { opacity: 0; transform: translateX(-118%); filter: blur(14px) drop-shadow(0 24px 30px rgba(0,0,0,.65)); }
-  6% { opacity: 1; }
-  28% { opacity: 1; transform: translateX(-94%); filter: blur(0) drop-shadow(0 24px 30px rgba(0,0,0,.65)); }
-  56% { transform: translateX(-86%); }
-  78%, 100% { opacity: 1; transform: translateX(-80%); filter: blur(0) drop-shadow(0 24px 30px rgba(0,0,0,.65)); }
+.light-a {
+  offset-path: path("M62 382 C90 414 151 370 207 305 C251 255 295 188 326 137 C336 121 342 117 339 135 C327 194 300 283 278 365 C268 404 258 394 260 365");
+  animation: guideLight 2.4s cubic-bezier(.42, 0, .24, 1) .7s forwards;
 }
 
-@keyframes brideEntrance {
-  0%, 27% { opacity: 0; transform: translateX(130%); filter: blur(14px) drop-shadow(0 24px 30px rgba(0,0,0,.65)); }
-  33% { opacity: 1; }
-  56% { opacity: 1; transform: translateX(104%); filter: blur(0) drop-shadow(0 24px 30px rgba(0,0,0,.65)); }
-  78%, 100% { opacity: 1; transform: translateX(91%); filter: blur(0) drop-shadow(0 24px 30px rgba(0,0,0,.65)); }
+.light-a-cross {
+  offset-path: path("M62 382 C87 324 151 289 215 278 C275 267 337 287 386 262");
+  animation: guideLight .75s cubic-bezier(.42, 0, .24, 1) 3.02s forwards;
 }
 
-@keyframes handSpark {
-  0%, 56% { opacity: 0; transform: translate(-50%, -50%) scale(.1) rotate(0); }
-  60% { opacity: 1; transform: translate(-50%, -50%) scale(1.2) rotate(12deg); }
-  67% { opacity: .38; transform: translate(-50%, -50%) scale(.65) rotate(20deg); }
-  74%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.8) rotate(28deg); }
+.light-ampersand {
+  offset-path: path("M432 332 C418 309 389 285 389 254 C389 231 416 220 429 236 C444 254 425 278 402 294 C381 309 375 334 393 346 C416 361 445 339 451 310");
+  animation: guideLight .95s cubic-bezier(.42, 0, .24, 1) 3.72s forwards;
 }
 
-@keyframes stagePush {
-  0%, 78% { transform: scale(1); }
-  100% { transform: scale(1.055); }
+.light-ampersand-cross {
+  offset-path: path("M381 278 C402 291 428 300 456 292");
+  animation: guideLight .38s ease 4.62s forwards;
 }
 
-@keyframes ambientZoom {
-  0%, 78% { transform: scale(1); }
-  100% { transform: scale(1.08); }
+.light-e {
+  offset-path: path("M611 186 C652 145 648 128 618 139 C569 156 515 190 526 216 C535 237 565 234 588 227 C529 250 479 293 459 337 C439 380 459 405 503 399 C566 391 632 344 690 318 C703 312 709 313 695 316");
+  animation: guideLight 2.55s cubic-bezier(.42, 0, .24, 1) 4.95s forwards;
 }
 
-@keyframes invitationFlash {
-  0%, 92% { opacity: 0; transform: scale(.08); }
-  98% { opacity: 1; transform: scale(1.5); }
-  100% { opacity: 1; transform: scale(1.7); }
+.monogram-core {
+  fill: #fff8e4;
+  opacity: 0;
+  filter: drop-shadow(0 0 18px #e4b75c) drop-shadow(0 0 42px rgba(218, 169, 72, .65));
+  animation: coreGather 12s ease-in-out forwards;
 }
 
-@keyframes openingExit {
-  0%, 98% { opacity: 1; }
+.story-signature {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + min(27vw, 16vh));
+  z-index: 4;
+  width: min(86vw, 500px);
+  color: #e4b85e;
+  text-align: center;
+  opacity: 0;
+  transform: translate(-50%, 10px);
+  animation: signatureReveal 12s ease-in-out forwards;
+}
+
+.story-signature span {
+  display: block;
+  font-family: "Great Vibes Local", cursive;
+  font-size: clamp(1.65rem, 7.2vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: .012em;
+  text-shadow:
+    0 0 8px rgba(226, 184, 95, .3),
+    0 0 22px rgba(190, 128, 34, .12);
+}
+
+.story-signature b {
+  display: block;
+  width: fit-content;
+  margin: -.24em auto;
+  padding: .3em .42em .38em;
+  font: inherit;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+}
+
+.story-signature em {
+  display: inline-block;
+  margin-right: -.04em;
+  color: #f1d28c;
+  font-family: inherit;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: .7;
+  transform: translateY(.04em);
+  text-shadow:
+    0 0 9px rgba(245, 217, 148, .45),
+    0 0 24px rgba(218, 169, 72, .18);
+}
+
+.story-signature b:first-child {
+  transform: translateX(-3%);
+  animation: writeSignature 1.55s cubic-bezier(.4, 0, .2, 1) 7.6s forwards;
+}
+
+.story-signature b:last-child {
+  margin-top: -.18em;
+  transform: translateX(5%);
+  animation: writeSignature 1.45s cubic-bezier(.4, 0, .2, 1) 8.95s forwards;
+}
+
+.story-signature i {
+  display: block;
+  width: 0;
+  height: .75px;
+  margin: .62rem auto 0;
+  background: linear-gradient(90deg, transparent, rgba(226,184,95,.18) 8%, rgba(241,210,140,.78) 50%, rgba(226,184,95,.18) 92%, transparent);
+  box-shadow: 0 0 8px rgba(226,184,95,.18);
+  animation: signatureFlourish 1.35s ease 10.05s forwards;
+}
+
+.gold-dust {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gold-dust i {
+  position: absolute;
+  left: calc(50% + (var(--dust-x, 0) * 1%));
+  top: calc(50% + (var(--dust-y, 0) * 1%));
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #dfe3e8;
+  opacity: 0;
+  box-shadow: 0 0 6px rgba(212,218,226,.72);
+  animation: dustFloat 6s ease-in-out infinite;
+}
+
+.gold-dust i:nth-child(1) { --dust-x: -19; --dust-y: -17; animation-delay: .3s; }
+.gold-dust i:nth-child(2) { --dust-x: 21; --dust-y: -13; animation-delay: 1.1s; }
+.gold-dust i:nth-child(3) { --dust-x: -24; --dust-y: 8; animation-delay: 2s; }
+.gold-dust i:nth-child(4) { --dust-x: 18; --dust-y: 15; animation-delay: .7s; }
+.gold-dust i:nth-child(5) { --dust-x: -12; --dust-y: -25; animation-delay: 2.6s; }
+.gold-dust i:nth-child(6) { --dust-x: 27; --dust-y: 2; animation-delay: 1.6s; }
+.gold-dust i:nth-child(7) { --dust-x: -29; --dust-y: -2; animation-delay: 3.2s; }
+.gold-dust i:nth-child(8) { --dust-x: 9; --dust-y: 25; animation-delay: .9s; }
+.gold-dust i:nth-child(9) { --dust-x: -7; --dust-y: 19; animation-delay: 2.2s; }
+.gold-dust i:nth-child(10) { --dust-x: 14; --dust-y: -22; animation-delay: 3.6s; }
+.gold-dust i:nth-child(11) { --dust-x: -31; --dust-y: 16; animation-delay: 1.4s; }
+.gold-dust i:nth-child(12) { --dust-x: 31; --dust-y: -8; animation-delay: 2.9s; }
+.gold-dust i:nth-child(13) { --dust-x: -16; --dust-y: 27; animation-delay: 4s; }
+.gold-dust i:nth-child(14) { --dust-x: 25; --dust-y: 22; animation-delay: .5s; }
+.gold-dust i:nth-child(15) { --dust-x: -4; --dust-y: -31; animation-delay: 1.9s; }
+.gold-dust i:nth-child(16) { --dust-x: 5; --dust-y: 31; animation-delay: 3.4s; }
+
+.journey-depth {
+  position: absolute;
+  inset: -8%;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 48%, transparent 12%, rgba(0, 0, 0, .22) 50%, #000 82%);
+  animation: depthPush 12s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.journey-transition {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 90vmax;
+  height: 90vmax;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle, rgba(255,253,248,.7) 0%, rgba(250,237,198,.42) 16%, rgba(239,208,138,.2) 38%, rgba(218,169,72,.08) 62%, transparent 100%);
+  box-shadow: 0 0 9vmax rgba(232,185,91,.13);
+  transform: translate(-50%, -50%) scale(.015);
+  animation: portalFill 12s cubic-bezier(.45, 0, .65, 1) forwards;
+}
+
+@keyframes writeLetter { to { stroke-dashoffset: 0; } }
+
+@keyframes guideLight {
+  0% { opacity: 0; offset-distance: 0%; }
+  5%, 92% { opacity: 1; }
+  100% { opacity: 0; offset-distance: 100%; }
+}
+
+@keyframes ambientBreath {
+  0%, 5% { opacity: 0; transform: scale(.85); }
+  45%, 83% { opacity: 1; transform: scale(1.06); }
+  100% { opacity: 0; transform: scale(1.18); }
+}
+
+@keyframes signatureReveal {
+  0%, 61% { opacity: 0; transform: translate(-50%, 10px); }
+  66%, 91% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -3px); }
+}
+
+@keyframes writeSignature { to { clip-path: inset(0 0 0 0); } }
+
+@keyframes signatureFlourish {
+  0% { width: 0; opacity: 0; }
+  100% { width: min(52vw, 230px); opacity: .8; }
+}
+
+@keyframes silverSkyDrift {
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(1.055) translateY(-8px); }
+}
+
+@keyframes silverTwinkle {
+  0% { opacity: .28; filter: brightness(.8); }
+  45% { opacity: .58; filter: brightness(1.18); }
+  100% { opacity: .4; filter: brightness(.94); }
+}
+
+@keyframes coreGather {
+  0%, 84% { opacity: 0; transform: scale(.2); }
+  89% { opacity: .6; transform: scale(.8); }
+  95% { opacity: .28; transform: scale(2); }
+  100% { opacity: 0; transform: scale(5); }
+}
+
+@keyframes dustFloat {
+  0%, 100% { opacity: 0; transform: translateY(8px) scale(.5); }
+  35%, 65% { opacity: .42; }
+  70% { transform: translateY(-10px) scale(1); }
+}
+
+@keyframes depthPush {
+  0%, 54% { transform: scale(1); }
+  90%, 100% { transform: scale(1.08); }
+}
+
+@keyframes portalFill {
+  0%, 91% { opacity: 0; transform: translate(-50%, -50%) scale(.02); filter: blur(22px); }
+  95% { opacity: .1; transform: translate(-50%, -50%) scale(.08); filter: blur(17px); }
+  98% { opacity: .22; transform: translate(-50%, -50%) scale(.28); filter: blur(13px); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(.62); filter: blur(18px); }
+}
+
+@keyframes journeyExit {
+  0%, 93% { opacity: 1; }
   100% { opacity: 0; }
 }
 
-@media (max-width: 700px) {
-  .opening-person { height: min(78vh, 760px); bottom: 0; }
-  .opening-groom { left: 48%; }
-  .opening-bride { right: 48%; }
-  .hand-glow { top: 46%; }
+@media (min-aspect-ratio: 9/16) {
+  .journey-depth {
+    background: radial-gradient(ellipse at 50% 48%, transparent 8%, rgba(0, 0, 0, .34) 36%, #000 68%);
+  }
+}
+
+@media (max-width: 600px) {
+  .gold-monogram {
+    width: 82vw;
+  }
+
+  .monogram-orbit {
+    display: none;
+  }
+
+  .monogram-letter {
+    stroke-width: 2.35;
+  }
+
+  .story-signature {
+    top: 62.5%;
+    width: 92vw;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .couple-opening * { animation-timing-function: linear !important; }
+  .journey-opening,
+  .journey-depth,
+  .journey-transition {
+    animation-timing-function: linear;
+  }
 }
