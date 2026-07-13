@@ -1,83 +1,68 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import "./OpeningExperience.css";
-
-const particles = Array.from({ length: 42 });
 
 const openingAsset = (file) =>
   `${import.meta.env.BASE_URL}images/opening/${file}`;
 
+function playRingChime() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+
+  const context = new AudioContext();
+  const gain = context.createGain();
+  gain.connect(context.destination);
+  gain.gain.setValueAtTime(0.0001, context.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.17, context.currentTime + 0.015);
+  gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 1.25);
+
+  [1174.66, 1760, 2349.32].forEach((frequency, index) => {
+    const oscillator = context.createOscillator();
+    oscillator.type = "sine";
+    oscillator.frequency.value = frequency;
+    oscillator.detune.value = index * 4;
+    oscillator.connect(gain);
+    oscillator.start(context.currentTime + index * 0.035);
+    oscillator.stop(context.currentTime + 1.3);
+  });
+
+  window.setTimeout(() => context.close(), 1500);
+}
+
 export default function OpeningExperience({ onComplete }) {
-  const audioRef = useRef(null);
-
   useEffect(() => {
-    const audio = audioRef.current;
-    audio?.play().catch(() => {});
-
-    const timer = setTimeout(() => {
-      onComplete();
-    }, 18200);
+    const chimeTimer = window.setTimeout(playRingChime, 4200);
+    const completeTimer = window.setTimeout(onComplete, 7000);
 
     return () => {
-      clearTimeout(timer);
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
+      window.clearTimeout(chimeTimer);
+      window.clearTimeout(completeTimer);
     };
   }, [onComplete]);
 
   return (
-    <section className="cinematic-ring-intro">
-      <audio
-        ref={audioRef}
-        src={`${import.meta.env.BASE_URL}music/luxury-wedding-ring-intro-18s.wav`}
-        preload="auto"
-      />
+    <section className="couple-opening" aria-label="Ahmet ve Elif düğün davetiyesi">
+      <div className="opening-ambient" />
+      <div className="opening-stars" />
 
-      <div className="scene-black" />
-      <div className="scene-atmosphere" />
-      <div className="scene-depth-light" />
-      <div className="distant-gold-source" />
-
-      <div className="ring-camera">
+      <div className="couple-stage">
         <img
-          className="ring-glow-layer"
-          src={openingAsset("ring-glow.png")}
-          alt=""
+          className="opening-person opening-groom"
+          src={openingAsset("damat.png")}
+          alt="Damat"
+        />
+        <img
+          className="opening-person opening-bride"
+          src={openingAsset("gelin.png")}
+          alt="Gelin"
         />
 
-        <img
-          className="ring-image ring-one"
-          src={openingAsset("ring-1.png")}
-          alt=""
-        />
-
-        <img
-          className="ring-image ring-two"
-          src={openingAsset("ring-2.png")}
-          alt=""
-        />
-
-        <div className="metal-sweep sweep-one" />
-        <div className="metal-sweep sweep-two" />
+        <div className="hand-glow" aria-hidden="true">
+          <span />
+        </div>
       </div>
 
-      <div className="particle-field">
-        {particles.map((_, index) => (
-          <span
-            key={index}
-            className={`gold-particle particle-${index + 1}`}
-          />
-        ))}
-      </div>
-
-      <div className="cinematic-vignette" />
-
-      <img
-        className="hero-transition-light"
-        src={openingAsset("transition-light.png")}
-        alt=""
-      />
+      <div className="invitation-transition" />
+      <div className="opening-vignette" />
     </section>
   );
 }
